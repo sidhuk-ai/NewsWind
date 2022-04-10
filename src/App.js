@@ -1,3 +1,4 @@
+// https://sidhuk-ai.github.io/newsindk/ my app
 import React,{useState} from 'react'
 import NavBar from './components/Navbar';
 import News from './components/NewsComponent';
@@ -73,7 +74,7 @@ function App() {
         progress={progress}
         />
         <Switch>
-          <Route exact path="/"><StartPage mode={mode}/></Route>
+          <Route exact path="/newsindk"><StartPage mode={mode}/></Route>
           <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
           <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
           <Route exact path="/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports" mode={mode}/></Route>
