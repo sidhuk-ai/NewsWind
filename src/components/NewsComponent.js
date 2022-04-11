@@ -46,7 +46,7 @@ function NewsComponent(props) {
             <h1 className="text-center font-bold text-3xl select-none" style={{ margin: '100px 0px 35px' ,color: props.mode==="dark"?"white":"black"}}>NewsWind - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
             {loading && <Loading mode={props.mode}/>}
             <InfiniteScroll
-                dataLength={articles.length}
+                dataLength={articles?.length}
                 next={fetchMoreData}
                 hasMore={articles.length !== totalResults}
                 loader={<Loading mode={props.mode}/>}
