@@ -48,12 +48,12 @@ function NewsComponent(props) {
             <InfiniteScroll
                 dataLength={articles?.length}
                 next={fetchMoreData}
-                hasMore={articles.length !== totalResults}
+                hasMore={articles?.length !== totalResults}
                 loader={<Loading mode={props.mode}/>}
             >
                 <div className="container">
                     <div className="row">
-                        {articles.map((element) => {
+                        {articles?.map((element) => {
                             return <div className="col-md-4 mb-3" key={element.url}>
                                 <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} mode={props.mode} />
                             </div>;

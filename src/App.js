@@ -1,4 +1,4 @@
-// https://sidhuk-ai.github.io/newsindk/ my app
+// https://sidhuk-ai.github.io/newsindk/ my website
 import React,{useState} from 'react'
 import NavBar from './components/Navbar';
 import News from './components/NewsComponent';
@@ -18,7 +18,8 @@ import { Alert } from '@mui/material';
 
 function App() {
   const pageSize = 6;
-  const apiKey = "e49bb08ca8ca4997b7e1818deb503703";
+  // const apiKey = "e49bb08ca8ca4997b7e1818deb503703";
+  const apiKey = process.env.REACT_APP_NEWS_API;
   const [progress, setProgress] = useState(0);
   const [mode, setmode] = useState("light");
   const [isDarkMode, setDarkMode] = useState(false);
