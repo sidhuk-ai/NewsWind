@@ -21,8 +21,8 @@ const Loading = (props) => {
                             <div className='flex items-center'>
                                 <a href="/" tabIndex="-1" className="btn btn-primary disabled placeholder col-6 container !mt-4 w-4/6">{}</a>
                                 <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
+                                <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
                             </div>
-                            <Skeleton variant="circular" animation='wave' width={56} height={56} className='!mt-[15px] ml-1'/>
                         </div>
                     </div>
                 </div>
@@ -55,8 +55,8 @@ const Loading = (props) => {
                             <div className='flex items-center'>
                                 <a href="/" tabIndex="-1" className="btn btn-primary disabled placeholder col-6 container !mt-4 w-4/6">{}</a>
                                 <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
+                                <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
                             </div>
-                            <Skeleton variant="circular" animation='wave' width={56} height={56} className='!mt-[15px] ml-1'/>
                         </div>
                     </div>
                 </div>
@@ -82,8 +82,8 @@ const Loading = (props) => {
                             <div className='flex items-center'>
                                 <a href="/" tabIndex="-1" className="btn btn-primary disabled placeholder col-6 container !mt-4 w-4/6">{}</a>
                                 <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
+                                <Skeleton variant="circular" animation='wave' width={40} height={40} className='!mt-[15px] ml-1'/>
                             </div>
-                            <Skeleton variant="circular" animation='wave' width={56} height={56} className='!mt-[15px] ml-1'/>
                         </div>
                     </div>
                 </div>
