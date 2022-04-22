@@ -3,8 +3,7 @@
 @tailwind utilities;
 
 a.active_class{
-    color: aqua;
-    border-bottom: 3px solid grey;
+    background-color: #adc1d361;
     transition: 0.5s;
     border-radius: 3px;
 }

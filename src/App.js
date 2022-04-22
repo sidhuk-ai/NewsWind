@@ -76,13 +76,13 @@ function App() {
         />
         <Switch>
           <Route exact path="/newsindk"><StartPage mode={mode}/></Route>
-          <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
-          <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
-          <Route exact path="/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports" mode={mode}/></Route>
-          <Route exact path="/entertainment"><News key="entertainment" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="entertainment" mode={mode}/></Route>
-          <Route exact path="/technology"><News key="technology" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="technology" mode={mode}/></Route>
-          <Route exact path="/signin"><SignIn mode={mode}/></Route>
-          <Route exact path="/newsletter"><NewsLetter mode={mode}/></Route>
+          <Route exact path="/newsindk/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
+          <Route exact path="/newsindk/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
+          <Route exact path="/newsindk/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports" mode={mode}/></Route>
+          <Route exact path="/newsindk/entertainment"><News key="entertainment" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="entertainment" mode={mode}/></Route>
+          <Route exact path="/newsindk/technology"><News key="technology" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="technology" mode={mode}/></Route>
+          <Route exact path="/newsindk/signin"><SignIn mode={mode}/></Route>
+          <Route exact path="/newsindk/newsletter"><NewsLetter mode={mode}/></Route>
         </Switch>
       </Router>
     </div>

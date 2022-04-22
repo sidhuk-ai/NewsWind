@@ -2,6 +2,7 @@ import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FavoriteBorder from '@mui/icons-material/FavoriteBorder';
 import Favorite from '@mui/icons-material/Favorite';
+import SpeedDials from './SpeedDial';
 
 function NewsItem(props) {
     let { title, description, imageurl, newsUrl, author, date, mode} = props;
@@ -20,6 +21,8 @@ function NewsItem(props) {
                         </svg></a>
                         <Checkbox className='!mt-[15px] ml-1' color='error' icon={<FavoriteBorder sx={{fontSize: 25}} color={`${mode==='dark'?'default':'black'}`}/>} checkedIcon={<Favorite sx={{fontSize: 25}} color={`${mode==='dark'?'default':'black'}`}/>} />
                     </div>
+                    <hr className='m-3'/>
+                    <SpeedDials/>
                 </div>
             </div>
         </>

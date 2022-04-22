@@ -5,7 +5,7 @@ import TextField from '@mui/material/TextField';
 
 const SignIn = (props) => {
     return (
-        <div className='d-flex align-items-center justify-content-center mt-40'>
+        <div className='d-flex align-items-center justify-content-center mt-12 flex-wrap sm:mt-40'>
             <div className="min-h-full flex items-center justify-center py-12 px-[1rem] sm:px-6 lg:px-8">
                 <div className="max-w-md w-full space-y-8">
                     <div>
@@ -29,7 +29,7 @@ const SignIn = (props) => {
                 </div>
                 <button type="submit" className="btn bg-blue-700 fw-bold text-white hover:bg-blue-800 block text-base w-[283px]">Submit</button>
                 <span className='d-flex justify-content-center mt-2'>
-                    <a href="/" className='text-xs hover:!underline'>Forgotten password?</a>
+                    <a href="/newsindk" className='text-xs hover:!underline'>Forgotten password?</a>
                 </span>
                 <hr className='mt-4 mb-4' />
                 <button className="btn bg-green-600 btn-success fw-bold ml-[52px]">Create New Account</button>

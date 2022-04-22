@@ -20,25 +20,25 @@ return (
                 <div className="collapse navbar-collapse justify-center" id="navbarSupportedContent">
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" aria-current="page" to="/general">{props.myhome}</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" aria-current="page" to="/newsindk/general">{props.myhome}</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/science">Science</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/science">Science</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/sports">Sports</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/sports">Sports</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/entertainment">Entertainment</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/entertainment">Entertainment</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/technology">Technology</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/technology">Technology</NavLink>
                         </li>
                     </ul>
                     
                 </div>
                 <div>
-                    <Link to="/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link>
+                    <Link to="/newsindk/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link>
                 </div>
             </div>
         </nav>

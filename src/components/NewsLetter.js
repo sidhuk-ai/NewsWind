@@ -28,7 +28,7 @@ export default function FormDialog(props) {
             src={workflow}
             alt="Workflow"
           />
-        <h2 className="mt-6 text-center text-3xl font-extrabold" style={{color:props.mode==="dark"?"white":"rgba(17,24,39,1)"}}><Link className='text-blue-700 hover:underline' to='/signin'>Sign in</Link> to your account</h2>
+        <h2 className="mt-6 text-center text-3xl font-extrabold" style={{color:props.mode==="dark"?"white":"rgba(17,24,39,1)"}}><Link className='text-blue-700 hover:underline' to='/newsindk/signin'>Sign in</Link> to your account</h2>
         <p className="mt-2 text-center text-sm" style={{color:props.mode==="dark"?"white":"rgba(208,210,224,1)"}}>
           Or{' '}
           Subscribe To Our Newsletter
