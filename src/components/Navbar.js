@@ -44,7 +44,7 @@ return (
                         <AccountCircleIcon sx={{color : props.mode==='light'?'black':'white'}}/>
                     </IconButton>
                     <ul className="dropdown-menu" style={{left:-74,backgroundColor:props.mode==='light'?'white':'#01070d'}} aria-labelledby="dropdownMenuButton1">
-                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/signin">Log In</Link></li>
+                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/signin">Sign In</Link></li>
                         <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/newsletter">Newsletter</Link></li>
                     </ul>
                 </div>

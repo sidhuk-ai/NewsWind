@@ -77,7 +77,7 @@ function NewsComponent(props) {
                 <Snackbar open={open} autoHideDuration={7000} onClose={handleClose} TransitionComponent={Slide} anchorOrigin={{horizontal:'center',vertical:'bottom'}}>
                     <Alert severity="error">
                         <AlertTitle className='font-semibold'>Error</AlertTitle>
-                        There is an error while fetching the news — <strong>Sorry for the Inconvenience</strong>
+                        There was an error while fetching the news — <strong>Sorry for the Inconvenience</strong>
                     </Alert>
                 </Snackbar>
             </InfiniteScroll>
