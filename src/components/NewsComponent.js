@@ -3,8 +3,13 @@ import NewsItem from './NewsItem'
 import Loading from './Loading';
 import PropTypes from 'prop-types';
 import InfiniteScroll from "react-infinite-scroll-component";
+import AlertTitle from '@mui/material/AlertTitle';
+import Alert from '@mui/material/Alert';
+import Snackbar from '@mui/material/Snackbar';
+import Slide from '@mui/material/Slide';
 
 function NewsComponent(props) {
+    const [open, setOpen] = useState(false);
     const [articles, setArticles] = useState([]);
     const [loading, setLoading] = useState(true);
     const [page, setPage] = useState(1);
@@ -25,6 +30,7 @@ function NewsComponent(props) {
         setTotalResults(parsedData.totalResults);
         setLoading(false);
         props.setProgress(100);
+        setOpen(true)
     };
     useEffect(() => {
         document.title = `${capitalizeFirstLetter(props.category)} - NewsWind`;
@@ -41,6 +47,14 @@ function NewsComponent(props) {
         setTotalResults(parsedData.totalResults);
     };
 
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }else{
+          setOpen(false);
+        }
+    };
+
     return (
         <>
             <h1 className="text-center font-bold text-3xl select-none" style={{ margin: '100px 0px 35px' ,color: props.mode==="dark"?"white":"black"}}>NewsWind - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
@@ -53,13 +67,19 @@ function NewsComponent(props) {
             >
                 <div className="container">
                     <div className="row">
-                        {articles?.map((element) => {
-                            return <div className="col-md-4 mb-3" key={element.url}>
+                        {articles?.map((element,key) => {
+                            return <div className="col-md-4 mb-3" key={key}>
                                 <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} mode={props.mode} />
-                            </div>;
+                            </div>
                         })}
                     </div>
                 </div>
+                <Snackbar open={open} autoHideDuration={7000} onClose={handleClose} TransitionComponent={Slide} anchorOrigin={{horizontal:'center',vertical:'bottom'}}>
+                    <Alert severity="error">
+                        <AlertTitle className='font-semibold'>Error</AlertTitle>
+                        There is an error while fetching the news — <strong>Sorry for the Inconvenience</strong>
+                    </Alert>
+                </Snackbar>
             </InfiniteScroll>
         </>
     );

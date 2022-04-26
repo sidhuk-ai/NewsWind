@@ -27,7 +27,7 @@ function NewsItem(props) {
                     Link of News Copied to Clipboard
                 </Alert>
             </Snackbar>
-            <div className="card container" style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",backgroundColor: mode==="dark"?"#2a2b2d":"white" }}>
+            <div className="card container" style={{ boxShadow: "rgba(0, 0, 0, 0.24) 0px 3px 8px",backgroundColor: mode==="dark"?"#2a2b2d":"white", transitionDuration:'0.7s'}}>
                 <img src={imageurl ? imageurl : 'https://static.vecteezy.com/system/resources/previews/000/228/657/original/top-headlines-news-themem-background-vector.jpg'} className="card-img-top mt-3" alt="img" width="305" height="172" />
                 <div className="card-body">
                     <h4 className="card-title font-bold select-none" style={{color:mode==="dark"?"white":"black"}}>{title}</h4>

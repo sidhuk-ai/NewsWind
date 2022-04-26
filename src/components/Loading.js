@@ -29,7 +29,7 @@ const Loading = (props) => {
                 
                 <div className="col-md-4 mb-4">
                     <div className="card container" aria-hidden="true" style={{backgroundColor: mode==="light"?"white":"rgb(97 92 92)"}}>
-\                        <Skeleton
+                        <Skeleton
                          variant="rectangular" 
                          className='mt-1' 
                          width={347.1} 

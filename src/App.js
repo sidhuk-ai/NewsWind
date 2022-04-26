@@ -36,6 +36,7 @@ function App() {
       setOpen(true);
       setmode("dark");//example color for dark mode:- #424244
       document.body.style.backgroundColor = "#212529";
+      document.body.style.transitionDuration = '0.7s';
     }
     else{
       setDarkMode(false);
@@ -43,6 +44,7 @@ function App() {
       setMsg('Light mode enabled');
       setmode("light");
       document.body.style.backgroundColor = "white";
+      document.body.style.transitionDuration = '0.7s';
     }
   }
   const handleClose = (event, reason) => {

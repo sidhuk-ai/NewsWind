@@ -10,7 +10,7 @@ export default function Navbar(props) {
 
 return (
     <div>
-        <nav className={`navbar navbar-expand-lg fixed-top shadow p-3 backdrop-blur-md`} style={{backgroundColor: props.mode==="dark"?"#0f172abf":"#ffffffb8", color: props.mode==="dark"?"white":"black"}}>
+        <nav className={`navbar navbar-expand-lg fixed-top shadow p-3 backdrop-blur-md`} style={{backgroundColor: props.mode==="dark"?"#0f172abf":"#ffffffb8", color: props.mode==="dark"?"white":"black",transitionDuration:'0.7s'}}>
             <div className="container-fluid">
                 <Link className="navbar-brand" to="/newsindk">
                     <img className="h-8 w-auto sm:h-[2.2rem]" src={workflow} alt=""/>
@@ -18,7 +18,7 @@ return (
                 <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <i className="bi bi-list"></i>
                 </button>
-                <div className="collapse navbar-collapse justify-center" id="navbarSupportedContent">
+                <div className="collapse navbar-collapse lg:justify-center" id="navbarSupportedContent">
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
                             <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" aria-current="page" to="/newsindk/general">{props.myhome}</NavLink>
@@ -50,6 +50,7 @@ return (
                 </div>
 
             </div>
+            
         </nav>
     </div>
 )
