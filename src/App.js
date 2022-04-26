@@ -17,6 +17,10 @@ import { Snackbar } from '@mui/material';
 import { Alert } from '@mui/material';
 
 function App() {
+  // const [data, setData] = useState('');
+  // const childtoParent = () => {
+
+  // }
   const pageSize = 6;
   // const apiKey = "e49bb08ca8ca4997b7e1818deb503703";
   const apiKey = process.env.REACT_APP_NEWS_API;

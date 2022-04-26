@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import workflow from './workflow.svg';
-import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 
 export default function Navbar(props) {
 
@@ -37,9 +38,17 @@ return (
                     </ul>
                     
                 </div>
-                <div>
-                    <Link to="/newsindk/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link>
+                <div className='dropdown'>
+                    {/* <Link to="/newsindk/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link> */}
+                    <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                        <AccountCircleIcon sx={{color : props.mode==='light'?'black':'white'}}/>
+                    </IconButton>
+                    <ul className="dropdown-menu" style={{left:-74,backgroundColor:props.mode==='light'?'white':'#01070d'}} aria-labelledby="dropdownMenuButton1">
+                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/signin">Log In</Link></li>
+                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/newsletter">Newsletter</Link></li>
+                    </ul>
                 </div>
+
             </div>
         </nav>
     </div>

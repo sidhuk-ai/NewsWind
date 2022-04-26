@@ -1,9 +1,25 @@
-import React from 'react';
+import React,{useState} from 'react';
 import workflow from './workflow.svg';
+import { Snackbar } from '@mui/material';
+import Slide from '@mui/material/Slide'
+import Alert from '@mui/material/Alert';
 import TextField from '@mui/material/TextField';
 
-
 const SignIn = (props) => {
+    const [msg, setMsg] = useState('');
+    const [open, setOpen] = useState(false);
+    const onLoginSuccess = (res) => {
+        setOpen(true)
+        setMsg('You logged in Successfully')
+    };
+
+    const handleClose = (event, reason) => {
+        if (reason === 'clickaway') {
+          return;
+        }else{
+          setOpen(false);
+        }
+    };
     return (
         <div className='d-flex align-items-center justify-content-center mt-12 flex-wrap sm:mt-40'>
             <div className="min-h-full flex items-center justify-center py-12 px-[1rem] sm:px-6 lg:px-8">
@@ -18,7 +34,14 @@ const SignIn = (props) => {
                     </div>
                 </div>
             </div>
-            <form className='pt-[13px] pb-6 px-[20px] rounded-lg shadow-md' style={{ boxShadow: "0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)", backgroundColor:props.mode==="dark"?"#6b6b6b":"#eff1f4"}}>
+            <Snackbar open={open} autoHideDuration={3000} onClose={handleClose} TransitionComponent={Slide}>
+                <Alert severity="success" variant='outlined' sx={{ width: '100%' }}>
+                    <p style={{color:props.mode==='light'?'black':'white'}}>
+                        {msg}
+                    </p>
+                </Alert>
+            </Snackbar>
+            <form onSubmit={onLoginSuccess} className='pt-[13px] pb-6 px-[20px] rounded-lg shadow-md' style={{ boxShadow: "0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)", backgroundColor:props.mode==="dark"?"#6b6b6b":"#eff1f4"}}>
                 <div className="mb-3">
                     <TextField id='outlined-basic' label='Email' variant='outlined' color={`${props.mode==='dark'?'warning':'secondary'}`} fullWidth={true} required={true}/>
                     {/* <input type="email" className="form-control" value={credentials.email} onChange={onChanges} id="exampleInputEmail1" aria-describedby="emailHelp"/> */}
@@ -32,7 +55,7 @@ const SignIn = (props) => {
                     <a href="/newsindk" className='text-xs hover:!underline'>Forgotten password?</a>
                 </span>
                 <hr className='mt-4 mb-4' />
-                <button className="btn bg-green-600 btn-success fw-bold ml-[52px]">Create New Account</button>
+                <a href="/newsindk" className='text-lg text-center font-bold block hover:!underline'>Create New Account</a>
             </form>
         </div>
     )
