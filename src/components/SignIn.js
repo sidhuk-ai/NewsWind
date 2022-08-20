@@ -67,7 +67,7 @@ const SignIn = (props) => {
                 </Snackbar>
                 <form onSubmit={onLoginSuccess} className='pt-[13px] pb-6 px-[20px] rounded-lg shadow-md' style={{ boxShadow: "0 2px 4px rgb(0 0 0 / 10%), 0 8px 16px rgb(0 0 0 / 10%)", backgroundColor:props.mode==="dark"?"#6b6b6b":"#eff1f4"}}>
                     <div className="mb-3">
-                        <TextField id='outlined-basic' label='Email' variant='outlined' color={`${props.mode==='dark'?'warning':'secondary'}`} fullWidth={true} required={true}/>
+                        <TextField id='outlined-basic' label='Email' inputProps={{type:'email'}} variant='outlined' color={`${props.mode==='dark'?'warning':'secondary'}`} fullWidth={true} required={true}/>
                         {/* <input type="email" className="form-control" value={credentials.email} onChange={onChanges} id="exampleInputEmail1" aria-describedby="emailHelp"/> */}
                     </div>
                     <div className="mb-3">

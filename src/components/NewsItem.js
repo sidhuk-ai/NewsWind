@@ -6,12 +6,17 @@ import CopyToClipboard from 'react-copy-to-clipboard';
 import ShareIcon from '@mui/icons-material/Share';
 import { Snackbar } from '@mui/material';
 import { Alert } from '@mui/material';
+import  Tooltip  from '@mui/material/Tooltip';
+import Zoom from '@mui/material/Zoom'
 
 function NewsItem(props) {
     let { title, description, imageurl, newsUrl, author, date, mode} = props;
     const [open, setOpen] = useState(false);
+    const [tooltip, setTooltip] = useState('Copy to clipboard')
     const isCopied = () => {
         setOpen(true)
+        setTooltip('Copied to clipboard')
+
     }
     const handleClose = (event, reason) => {
         if (reason === 'clickaway') {
@@ -40,7 +45,9 @@ function NewsItem(props) {
                         </svg></a>
                         <Checkbox className='ml-1 !mt-[15px]' color='error' icon={<FavoriteBorder sx={{fontSize: 25, color:`${mode==='dark'?'white':'black'}`}}/>} checkedIcon={<Favorite sx={{fontSize: 25}} />} />
                         <CopyToClipboard text={newsUrl}>
+                        <Tooltip title={tooltip} TransitionComponent={Zoom} arrow>
                             <ShareIcon className='ml-1 !mt-[15px]' sx={{fontSize: 25, color:`${mode==='dark'?'white':'black'}`}} onClick={isCopied}/>
+                        </Tooltip>
                         </CopyToClipboard>
                     </div>
                 </div>
