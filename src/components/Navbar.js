@@ -5,8 +5,10 @@ import { Link } from 'react-router-dom';
 import workflow from './workflow.svg';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Navbar(props) {
+    const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
 return (
     <div>
@@ -38,16 +40,34 @@ return (
                     </ul>
                     
                 </div>
-                <div className='dropdown'>
-                    {/* <Link to="/newsindk/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link> */}
-                    <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <AccountCircleIcon sx={{color : props.mode==='light'?'black':'white'}}/>
-                    </IconButton>
-                    <ul className="dropdown-menu" style={{left:-74,backgroundColor:props.mode==='light'?'white':'#01070d'}} aria-labelledby="dropdownMenuButton1">
-                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/signin">Sign In</Link></li>
-                        <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/newsletter">Newsletter</Link></li>
-                    </ul>
+                {/* Creating Authentication */}
+                <div>
+                    { 
+                        isAuthenticated ? 
+                            <li className='list-none'>
+                                <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button>
+                            </li>
+                            : 
+                            <li className='list-none'>
+                                <button onClick={() => loginWithRedirect()}>Log In</button>
+                            </li>
+                    }
                 </div>
+                {/* Authentication ^^^^ */}
+                {isAuthenticated && 
+                    <div className='dropdown'>
+                        {/* <Link to="/newsindk/newsletter"><Button className='rounded' variant='text' color='error'>NEWSLETTER</Button></Link> */}
+                        <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            <img src={user.picture} className='w-9 h-9 rounded-3xl' alt={<AccountCircleIcon sx={{color : props.mode==='light'?'black':'white'}}/>} />
+                        </IconButton>
+                        <ul className="dropdown-menu" style={{left:-74,backgroundColor:props.mode==='light'?'white':'#01070d'}} aria-labelledby="dropdownMenuButton1">
+                            {/* <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/signin">Sign In</Link></li>
+                            <li><Link className="dropdown-item" style={{color : props.mode==='light'?'black':'white'}} to="/newsindk/newsletter">Newsletter</Link></li> */}
+                            <li>{user.name}</li>
+                            <li>{user.email}</li>
+                        </ul>
+                    </div>
+                }
 
             </div>
             
