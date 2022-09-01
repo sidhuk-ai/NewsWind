@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import workflow from './workflow.svg';
 import IconButton from '@mui/material/IconButton';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import Button from '@mui/material/Button';
 import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Navbar(props) {
@@ -23,19 +24,19 @@ return (
                 <div className="collapse navbar-collapse lg:justify-center" id="navbarSupportedContent">
                     <ul className="navbar-nav mb-2 mb-lg-0">
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" aria-current="page" to="/newsindk/general">{props.myhome}</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" aria-current="page" to="/general">{props.myhome}</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/science">Science</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/science">Science</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/sports">Sports</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/sports">Sports</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/entertainment">Entertainment</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/entertainment">Entertainment</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/newsindk/technology">Technology</NavLink>
+                            <NavLink exact activeClassName='active_class' className="py-2 my-1 px-[1rem] mx-1 tracking-[2px]" to="/technology">Technology</NavLink>
                         </li>
                     </ul>
                     
@@ -45,11 +46,11 @@ return (
                     { 
                         isAuthenticated ? 
                             <li className='list-none'>
-                                <button onClick={() => logout({ returnTo: window.location.origin })}>Log Out</button>
+                                <Button color='secondary' onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Button>
                             </li>
                             : 
                             <li className='list-none'>
-                                <button onClick={() => loginWithRedirect()}>Log In</button>
+                                <Button variant='outlined' color='success' onClick={() => loginWithRedirect()}>Log In</Button>
                             </li>
                     }
                 </div>
