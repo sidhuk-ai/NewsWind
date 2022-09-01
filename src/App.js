@@ -104,7 +104,7 @@ function App() {
         </DialogActions>
         </Dialog>
         <Switch>
-          <Route exact path="/"><StartPage mode={mode}/></Route>
+          <Route exact path="/newsindk"><StartPage mode={mode}/></Route>
           {/* <Route exact path=""><StartPage mode={mode}/></Route> */}
           <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
           <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
