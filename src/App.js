@@ -6,7 +6,6 @@ import SignIn from './components/SignIn';
 import NewsLetter from './components/NewsLetter';
 import StartPage from './components/StartPage';
 import ScrollToTop from "react-scroll-to-top";
-import DialogActions from '@mui/material/DialogActions';
 import Button from '@mui/material/Button'
 import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import {
@@ -17,6 +16,7 @@ import {
 import LoadingBar from 'react-top-loading-bar';
 import { Dialog, Snackbar } from '@mui/material';
 import { Alert } from '@mui/material';
+import Offline from './Offline.gif'
 
 function App() {
 
@@ -63,10 +63,10 @@ function App() {
     <ScrollToTop smooth top={600} style={{display:'initial'}}/>
       <Router>
         <NavBar myhome="Home" mode={mode} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
-        <div className="container border-2">
+        <div className="">
           <span style={{height:"20px"}} data-bs-toggle="tooltip" data-bs-placement="bottom" title='Toggle Dark/Light Mode' >
             <DarkModeSwitch
-              className='fixed right-1 top-[80px] backdrop-blur-xl border-2 rounded-md z-50'
+              className='fixed right-1 top-[100px] backdrop-blur-xl border-2 rounded-md z-50'
               checked={isDarkMode}
               onChange={toggleDarkMode}
               size={35}
@@ -90,22 +90,20 @@ function App() {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
         >
-          <div>
-            <img className=' h-[141px] p-[6px] pl-[10px]' src="https://m.media-amazon.com/images/M/MV5BNzU3MjZmYjUtM2JjYS00ZjY3LWI2YzQtYjRmYTJmNTJhZGRmXkEyXkFqcGdeQXVyNDk2MzgwNjE@._V1_.jpg" alt="Offline"/>
+          <div className='m-auto'>
+            <img className=' h-[141px] p-[6px] pl-[10px]' src={Offline} alt="Offline"/>
           </div>
           <div className='font-mono font-bold m-4'>
             You seems to be offline
           </div>
-        <DialogActions className='flex justify-center'>
           <Button className='' onClick={refreshPage}>Reload</Button>
           {/* <Button onClick={handleClose} autoFocus>
             Agree
-          </Button> */}
         </DialogActions>
+          </Button> */}
         </Dialog>
         <Switch>
-          <Route exact path="/newsindk"><StartPage mode={mode}/></Route>
-          {/* <Route exact path=""><StartPage mode={mode}/></Route> */}
+          <Route exact path="/newsindk"><StartPage/></Route>
           <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
           <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
           <Route exact path="/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports" mode={mode}/></Route>

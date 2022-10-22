@@ -2,8 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700;800;900&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Public+Sans:wght@300;400;500;600;700;800&display=swap');
+:root{
+    --font-ns : 'Nunito Sans', sans-serif;
+    --font-pjs : 'Plus Jakarta Sans', sans-serif;
+    --font-ps : 'Public Sans', sans-serif;
+}
+body{
+    font-family: var(--font-pjs);
+    scroll-behavior: smooth;
+    font-weight: 300;
+    overflow-x: hidden;
+}
 a.active_class{
     background-color: #adc1d361;
     transition: 0.5s;
     border-radius: 3px;
+    padding: 5px 10px 5px 10px;
 }

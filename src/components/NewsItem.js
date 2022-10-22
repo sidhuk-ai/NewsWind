@@ -44,11 +44,11 @@ function NewsItem(props) {
                             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                         </svg></a>
                         <Checkbox className='ml-1 !mt-[15px]' color='error' icon={<FavoriteBorder sx={{fontSize: 25, color:`${mode==='dark'?'white':'black'}`}}/>} checkedIcon={<Favorite sx={{fontSize: 25}} />} />
-                        <CopyToClipboard text={newsUrl}>
                         <Tooltip title={tooltip} TransitionComponent={Zoom} arrow>
-                            <ShareIcon className='ml-1 !mt-[15px]' sx={{fontSize: 25, color:`${mode==='dark'?'white':'black'}`}} onClick={isCopied}/>
+                            <ShareIcon className='ml-1 !mt-[15px]' sx={{fontSize: 25, color:`${mode==='dark'?'white':'black'}`}} onClick={isCopied}>
+                                <CopyToClipboard text={newsUrl}/>
+                            </ShareIcon>
                         </Tooltip>
-                        </CopyToClipboard>
                     </div>
                 </div>
             </div>

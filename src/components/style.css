@@ -1,0 +1,258 @@
+@import url('https://fonts.googleapis.com/css2?family=Waiting+for+the+Sunrise&display=swap');
+
+.svg-background{
+    background-color: #000000;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1600 900'%3E%3Cdefs%3E%3ClinearGradient id='a' x1='0' x2='0' y1='1' y2='0' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%230FF'/%3E%3Cstop offset='1' stop-color='%23C8FF80'/%3E%3C/linearGradient%3E%3ClinearGradient id='b' x1='0' x2='0' y1='0' y2='1' gradientTransform='rotate(0,0.5,0.5)'%3E%3Cstop offset='0' stop-color='%23F00'/%3E%3Cstop offset='1' stop-color='%23FC0'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cg fill='%23FFF' fill-opacity='0' stroke-miterlimit='10'%3E%3Cg stroke='url(%23a)' stroke-width='3.3'%3E%3Cpath transform='translate(-56 12.8) rotate(8 1409 581) scale(1.032)' d='M1409 581 1450.35 511 1490 581z'/%3E%3Ccircle stroke-width='1.1' transform='translate(-32 32) rotate(9.6 800 450) scale(1.016)' cx='500' cy='100' r='40'/%3E%3Cpath transform='translate(28.8 -96) rotate(96 401 736) scale(1.016)' d='M400.86 735.5h-83.73c0-23.12 18.74-41.87 41.87-41.87S400.86 712.38 400.86 735.5z'/%3E%3C/g%3E%3Cg stroke='url(%23b)' stroke-width='1'%3E%3Cpath transform='translate(192 -12.8) rotate(3.2 150 345) scale(0.968)' d='M149.8 345.2 118.4 389.8 149.8 434.4 181.2 389.8z'/%3E%3Crect stroke-width='2.2' transform='translate(-128 -80) rotate(115.2 1089 759)' x='1039' y='709' width='100' height='100'/%3E%3Cpath transform='translate(-192 64) rotate(19.2 1400 132)' d='M1426.8 132.4 1405.7 168.8 1363.7 168.8 1342.7 132.4 1363.7 96 1405.7 96z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-attachment: fixed;
+    background-size: cover;
+}
+section{
+    border-bottom: 2px solid black;
+    display: flex;
+    width: 100%;
+    z-index: 1;
+}
+
+.nav-home{
+    z-index: 3;
+    width: 100%;
+}
+
+.nav-home .contain .unordered a {
+display: inline-block;
+text-decoration: none;
+padding: 10px 20px;
+color: black;
+}
+.line{
+    position: relative;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.line.active::after {
+    transition-delay: .2s;
+}
+.line:hover::after, .line.active::after{
+    transform: scale(1);
+}
+.line::after{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 70%;
+    background-color: black;
+    height: 2px;
+    transition: transform .25s ease-in-out;
+    transform: scale(0);
+}
+
+#tools{
+    background-color: rgb(33 37 41);
+    color: #fff;
+}
+.inside-tools{
+    background: -webkit-linear-gradient(-70deg, #2188ff 0%, #804eda 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    letter-spacing: -0.03rem;
+}
+#add-ons{
+    background-color: #fff;
+}
+.inside-addons{
+    background: -webkit-linear-gradient(-70deg, #db469f 0%, #2188ff 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#setup{
+    background-color: rgb(33 37 41);
+    color: #fff;
+}
+.inside-setup{
+    background: -webkit-linear-gradient(-70deg, #3bf0e4 0%, #bca1f7 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#development{
+    background-color: #fff;
+}
+.inside-dev{
+    background: -webkit-linear-gradient(-70deg, #9867f0 0%, #ed4e50 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+#version{
+    background-color: rgb(33 37 41);
+    color: #fff;
+}
+.inside-version{
+    background: -webkit-linear-gradient(-70deg, #ff7170 0%, #ffe57f 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.comp{
+    font-family: 'Waiting for the Sunrise', cursive;
+}
+
+.bouncy{
+    animation: bounce 1s;
+    animation-direction: alternate;
+    animation-timing-function: ease;
+    animation-iteration-count: 1;
+}
+
+@keyframes bounce {
+    from{
+        transform: translate3d(0,0,0);
+    }
+    to{
+        transform: translate3d(0,20px,0);
+    }
+}
+
+.heading{
+    @apply relative text-[32px] text-center leading-9 font-bold 
+    md:!text-5xl md:!leading-[52px] md:!text-left
+    lg:!text-[64px] lg:!leading-[68px];
+    font-family: var(--font-ns);
+}
+
+.wrapper{
+    @apply relative overflow-hidden block w-full h-[1.2em];
+}
+
+.para{
+    font-family: var(--font-pjs);
+}
+
+.word{
+    @apply text-center absolute left-0 w-full h-[1.2em] md:!text-left;
+    /* font-family: 'Playfair Display', serif; */
+    font-family: var(--font-ns);
+    background: -webkit-linear-gradient(-70deg, #a2facf 0%, #64acff 100%);
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    -webkit-background-clip: text;
+    animation: sasta-anim;
+    animation-duration: 1750ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.48,0.08,0.19,1);
+}
+.word:last-of-type{
+    animation: aur-sasta;
+    animation-duration: 1750ms;
+    animation-fill-mode: both;
+    animation-timing-function: cubic-bezier(0.48,0.08,0.19,1);
+}
+
+@keyframes sasta-anim{
+    0%{
+        opacity: 0;
+        transform: translateY(120%);
+    }
+    25%, 75%{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    100%{
+        opacity: 0;
+        transform: translateY(-120%);
+    }
+}
+@keyframes aur-sasta{
+    0%{
+        opacity: 0;
+        transform: translateY(120%);
+    }
+    25%{
+        opacity: 1;
+        transform: translateY(0%);
+    }
+}
+
+.btn-mktg{
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+    padding: 0.9rem 1.5rem 1.1rem;
+    font-size: 1rem;
+    font-weight: 700;
+    line-height: 1;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    user-select: none;
+    /* background: linear-gradient(180deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 100%) !important; */
+    background: linear-gradient(115deg, #2bd2ff, #2bff88) !important;
+    border: 0;
+    border-radius: 0.375rem;
+    transition: box-shadow .2s,outline .2s ease;
+    -webkit-appearance: none !important;
+    appearance: none !important;
+}
+.btn-mktg .arrow-symbol-mktg path:last-child,
+.link-mktg .arrow-symbol-mktg path:last-child{
+    stroke-dasharray: 10;
+    stroke-dashoffset: 10;
+    transition: stroke-dashoffset .2s;
+}
+.btn-mktg .arrow-symbol-mktg,
+.link-mktg .arrow-symbol-mktg{
+    transition: transform .2s;
+    transform: translateX(0);
+}
+@media screen and (prefers-reduced-motion: no-preference){
+    .btn-mktg:hover .arrow-symbol-mktg,
+    .link-mktg:hover .arrow-symbol-mktg{
+        transform: translateX(4px);
+    }
+    .btn-mktg:hover .arrow-symbol-mktg path:last-child,
+    .link-mktg:hover .arrow-symbol-mktg path:last-child{
+        stroke-dashoffset: 20;
+    }
+}
+.octicon{
+    display: inline-block;
+    overflow: visible !important;
+    vertical-align: text-bottom;
+    fill: currentColor;
+}
+
+
+.link-mktg::after, .link-mktg.link-emphasis-mktg::before{
+    position: absolute;
+    bottom: -0.15em;
+    left: 0;
+    width: calc(100% - 1em);
+    height: 2px;
+    pointer-events: none;
+    content: "";
+    /* background-color: currentColor; */
+    background-color: white;
+    transform: scaleX(0);
+    transform-origin: 0 0;
+}
+.link-mktg.link-emphasis-mktg::before {
+    opacity: .2;
+    transform: scaleX(1);
+}
+@media screen and (prefers-reduced-motion: no-preference){
+    .link-mktg::after, .link-mktg.link-emphasis-mktg::before {
+        transition: transform .3s ease;
+    }
+}
+.link-mktg:hover::after, .link-mktg:active::after {
+    transform: scaleX(1);
+}
+.link-mktg{
+    position: relative;
+    display: inline-block;
+}
