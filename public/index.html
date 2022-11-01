@@ -5,10 +5,6 @@
     <link rel="icon" href="%PUBLIC_URL%/workflow.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="Web site created using create-react-app"
-    />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/workflow.svg" />
     <!--
       manifest.json provides metadata used when your web app is installed on a
@@ -31,6 +27,50 @@
     <title>NewsWind</title>
   </head>
   <body>
+    <script>
+      // Insert this script as-is in your index.html right after the <body> tag.
+      // This will help to prevent a flash if dark mode is the default.
+
+      (function() {
+        var classNameDark = 'dark-mode';
+        var classNameLight = 'light-mode';
+
+        function setClassOnDocumentBody(darkMode) {
+          document.body.classList.add(
+            darkMode ? classNameDark : classNameLight
+          );
+          document.body.classList.remove(
+            darkMode ? classNameLight : classNameDark
+          );
+        }
+
+        var preferDarkQuery = '(prefers-color-scheme: dark)';
+        var mql = window.matchMedia(preferDarkQuery);
+        var supportsColorSchemeQuery = mql.media === preferDarkQuery;
+        var localStorageTheme = null;
+        try {
+          localStorageTheme = localStorage.getItem('darkMode');
+        } catch (err) {}
+        var localStorageExists = localStorageTheme !== null;
+        if (localStorageExists) {
+          localStorageTheme = JSON.parse(localStorageTheme);
+        }
+
+        // Determine the source of truth
+        if (localStorageExists) {
+          // source of truth from localStorage
+          setClassOnDocumentBody(localStorageTheme);
+        } else if (supportsColorSchemeQuery) {
+          // source of truth from system
+          setClassOnDocumentBody(mql.matches);
+          localStorage.setItem('darkMode', mql.matches);
+        } else {
+          // source of truth from document.body
+          var isDarkMode = document.body.classList.contains(classNameDark);
+          localStorage.setItem('darkMode', JSON.stringify(isDarkMode));
+        }
+      })();
+    </script>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>

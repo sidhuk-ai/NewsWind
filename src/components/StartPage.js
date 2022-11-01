@@ -1,11 +1,13 @@
 import {React, useEffect} from 'react';
-import Pic from '../pic-removebg-preview.png';
-import './style.css';
+import './css/style.css';
 import Scroll from './Scroll';
 import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Skeleton } from '@mui/material';
+import Lottie from 'lottie-react'
+import purpleGlobe from './Video/purpleGlobe.json'
+import scrollDown from './Video/scrollDown.json'
 
 function StartPage() {
   const sections = document.querySelectorAll("section");
@@ -32,12 +34,12 @@ function StartPage() {
   }, [])
   
   return (
-    <div className='start-page relative lg:mt-2 min-h-[100vh] bg-white'>
+    <div className='start-page relative lg:z-[-1] lg:mt-4 min-h-[100vh] bg-white'>
       {/* // ? Top Element */}
       <div className='main-element'>
         <div className='svg-background h-auto pb-10 bg-black flex justify-center items-center flex-col lg:flex-row lg:!-mt-4'>
           <div className='left-element lg:pl-6'>
-            <h1 className='heading text-white'>
+            <h1 className='heading text-white font-extrabold'>
               Bringing you the <br /> latest news in,
               <span className="wrapper">
                 <span className="word" style={{animationDelay:'00ms'}}>Science</span>
@@ -49,26 +51,31 @@ function StartPage() {
                 <span className="word" style={{animationDelay:'9000ms'}}>so do explore.</span>
               </span>
             </h1>
-            <p className='para text-xl text-white !mt-3 text-center md:!text-left md:mr-64 lg:!mr-0 lg:w-[608px] lg:!text-2xl'>This Newswind Website is just an example website created using <a href="https://reactjs.org/" className='font-bold bg-[#74b9ff63] !text-current rounded underline decoration-red-400 border-b-[#7dd3fc] px-1 hover:decoration-[#7dd3fc]' target='_blank' rel='noreferrer'>Reactjs</a> as a framework.</p>
+            <p className='para text-xl font-semibold text-white !mt-3 text-center md:!text-left md:mr-64 lg:!mr-0 lg:w-[608px] lg:!text-2xl'>This Newswind Website is just an example website created using <a href="https://reactjs.org/" className='font-bold bg-[#74b9ff63] !text-current rounded underline decoration-red-400 border-b-[#7dd3fc] px-1 hover:decoration-[#7dd3fc]' target='_blank' rel='noreferrer'>Reactjs</a> as a framework.</p>
           </div>
-          <div className='right-element'>
-            {/* <video className=' h-[400px]' src={Gif} muted autoPlay playsInline/> */}
-            <img src={Pic} alt="Starting-logo" className='bouncy h-[400px]'/>
+          <div className='right-element' data-aos='zoom-in'>
+            <Lottie animationData={purpleGlobe} width='800' height='800'/>
           </div>
         </div>
       </div>
       {/*//? Lottie Animation */}
-      <div className="lottie min-h-[100vh] flex justify-around items-center flex-wrap">
-        <div className="description text-5xl">
-          Breathe
-          <span data-aos='zoom-in'> In </span>
-          <span data-aos='zoom-in' data-aos-offset='350'> & </span>
-          <span data-aos='zoom-in' data-aos-offset='471'> Out </span>
-          <br />
-          and <br /> Scroll down to see more.
+      <div className="lottie min-h-[100vh] flex items-center flex-col flex-wrap">
+        <div className="flex flex-row justify-around items-center">
+          <div className="description text-5xl text-black">
+            Breathe
+            <span data-aos='zoom-in'> In </span>
+            <span data-aos='zoom-in' data-aos-offset='350'> & </span>
+            <span data-aos='zoom-in' data-aos-offset='471'> Out </span>
+          </div>
+          <div className="animation w-[40%] p-5">
+            <Scroll/>
+          </div>
         </div>
-        <div className="animation w-[40%] p-5">
-          <Scroll/>
+        <div className="p-6 my-16">
+          <span className='text-5xl font-semibold text-black'>Scroll down to see more</span>
+          <div className='w-1/2 h-1/2 m-auto'>
+            <Lottie animationData={scrollDown}/>
+          </div>
         </div>
       </div>
       {/* //? Home Navigation */}
@@ -179,7 +186,7 @@ function StartPage() {
         </section>
         <section className='flex h-[100vh]' id='development'>
         <div className="flex container pt-24 justify-center">
-          <div className="text-[64px] leading-[68px] font-extrabold max-w-xl p-2">
+          <div className="text-[64px] leading-[68px] text-black font-extrabold max-w-xl p-2">
             <span className='inside-dev'> Development </span>
             Of This Project
           </div>

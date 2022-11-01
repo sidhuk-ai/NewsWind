@@ -1,68 +1,65 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 import { Link } from "react-router-dom";
 import IconButton from "@mui/material/IconButton";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
 import { useAuth0 } from "@auth0/auth0-react";
-import "./style.css";
+import "./css/style.css";
+import DarkmodeToggle from "./DarkMode/DarkmodeToggle";
+import './DarkMode/style.scss'
+// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 
-export default function Navbar(props) {
+export default function Navbar() {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
 
   // Hamburger Menu
   document.addEventListener('DOMContentLoaded', function() {
     // open
-        const burger = document.querySelectorAll('.navbar-burger');
-        const menu = document.querySelectorAll('.navbar-menu');
+    const burger = document.querySelectorAll('.navbar-burger');
+    const menu = document.querySelectorAll('.navbar-menu');
 
-        if (burger.length && menu.length) {
-            for (var i = 0; i < burger.length; i++) {
-                burger[i].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                        menu[j].classList.toggle('hidden');
-                    }
-                });
-            }
-        }
+    if (burger.length && menu.length) {
+      for (var i = 0; i < burger.length; i++) {
+        burger[i].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle('hidden');
+          }
+        });
+      }
+    }
 
-        // close
-        const close = document.querySelectorAll('.navbar-close');
-        const backdrop = document.querySelectorAll('.navbar-backdrop');
+    // close
+    const close = document.querySelectorAll('.navbar-close');
+    const backdrop = document.querySelectorAll('.navbar-backdrop');
 
-        if (close.length) {
-            for (var x = 0; x < close.length; x++) {
-                close[x].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                        menu[j].classList.toggle('hidden');
-                    }
-                });
-            }
-        }
+    if (close.length) {
+      for (var x = 0; x < close.length; x++) {
+        close[x].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle('hidden');
+          }
+        });
+      }
+    }
 
-        if (backdrop.length) {
-            for (var a = 0; a < backdrop.length; a++) {
-                backdrop[a].addEventListener('click', function() {
-                    for (var j = 0; j < menu.length; j++) {
-                        menu[j].classList.toggle('hidden');
-                    }
-                });
-            }
-        }
-    });
+    if (backdrop.length) {
+      for (var a = 0; a < backdrop.length; a++) {
+        backdrop[a].addEventListener('click', function() {
+          for (var j = 0; j < menu.length; j++) {
+            menu[j].classList.toggle('hidden');
+          }
+        });
+      }
+    }
+  });
 
   return (
     <div className="z-[2] bg-black">
-      {/* 
-        backgroundColor: props.mode === "dark" ? "#0f172abf" : "#ffffffb8",
-        color: props.mode === "dark" ? "white" : "black",
-        transitionDuration: "0.7s",
-
-      {/* New Navbar */}
+      {/* //? New Navbar */}
       <nav className="relative px-4 py-4 flex justify-between items-center bg-transparent">
         <Link className="text-3xl font-bold leading-none" to="/newsindk">
-            <span className="comp select-none font-light text-4xl text-white">NewsWind</span>
+          <span className="comp select-none font-light text-4xl text-white">NewsWind</span>
         </Link>
         <div className="lg:hidden">
           <button className="navbar-burger flex items-center text-blue-600 p-3 duration-700">
@@ -100,12 +97,12 @@ export default function Navbar(props) {
           </li>
           <li>
             <NavLink
-            exact
-            activeClassName="active_class"
-            className="text-xl  text-white hover:!text-blue-500"
-            to="/science"
+              exact
+              activeClassName="active_class"
+              className="text-xl  text-white hover:!text-blue-500"
+              to="/science"
             >
-                Science
+              Science
             </NavLink>
           </li>
           <li className="text-gray-300">
@@ -126,13 +123,13 @@ export default function Navbar(props) {
           </li>
           <li>
           <NavLink
-                  exact
-                  activeClassName="active_class"
-                  className="text-xl  text-white hover:!text-blue-500"
-                  to="/sports"
-                >
-                  Sports
-                </NavLink>
+            exact
+            activeClassName="active_class"
+            className="text-xl  text-white hover:!text-blue-500"
+            to="/sports"
+          >
+            Sports
+          </NavLink>
           </li>
           <li className="text-gray-300">
             <svg
@@ -152,13 +149,13 @@ export default function Navbar(props) {
           </li>
           <li>
           <NavLink
-                  exact
-                  activeClassName="active_class"
-                  className="text-xl  text-white hover:!text-blue-500"
-                  to="/entertainment"
-                >
-                  Entertainment
-                </NavLink>
+            exact
+            activeClassName="active_class"
+            className="text-xl  text-white hover:!text-blue-500"
+            to="/entertainment"
+          >
+            Entertainment
+          </NavLink>
           </li>
           <li className="text-gray-300">
             <svg
@@ -178,45 +175,50 @@ export default function Navbar(props) {
           </li>
           <li>
           <NavLink
-                  exact
-                  activeClassName="active_class"
-                  className="text-xl text-white hover:!text-blue-500"
-                  to="/technology"
-                >
-                  Technology
-                </NavLink>
+            exact
+            activeClassName="active_class"
+            className="text-xl text-white hover:!text-blue-500"
+            to="/technology"
+          >
+            Technology
+          </NavLink>
           </li>
         </ul>
         {/* Creating Authentication */}
-            { 
-                isAuthenticated ? 
-                    <li className="list-none hidden lg:inline-block transition duration-200 ">
-                        <Button color='secondary' onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Button>
-                    </li>
-                    : 
-                    <li className="list-none hidden lg:ml-auto lg:inline-block transition duration-200">
-                        <Button className="btn-mktg text-black" onClick={() => loginWithRedirect()}>
-                          Log In
-                          <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-                            <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"/>
-                            <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"/>
-                          </svg>
-                        </Button>
-                    </li>
-            }
-            {/* Authentication ^^^^ */}
-            {isAuthenticated && 
-                <div className='dropdown'>
-                    <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                        <img src={user.picture} className='w-9 h-9 rounded-3xl' alt={<AccountCircleIcon sx={{color : props.mode==='light'?'black':'white'}}/>} />
-                    </IconButton>
-                    <ul className="dropdown-menu" style={{left:-74,backgroundColor:props.mode==='light'?'white':'#01070d'}} aria-labelledby="dropdownMenuButton1">
-                        <li>{user.name}</li>
-                        <li>{user.email}</li>
-                    </ul>
-                </div>
-            }
+        { 
+          isAuthenticated ? 
+          <li className="list-none hidden lg:inline-block transition duration-200 ">
+              <Button color='secondary' onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Button>
+          </li>
+          : 
+          <li className="list-none hidden lg:ml-auto lg:inline-block transition duration-200">
+              <Button className="btn-mktg text-black hover:shadow-lg focus:shadow-lg active:shadow-lg" onClick={() => loginWithRedirect()}>
+                Log In
+                <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"/>
+                  <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+              </Button>
+          </li>
+        }
+        {/* Authentication ^^^^ */}
+        {
+          isAuthenticated &&
+          <div className='dropdown'>
+              <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img src={user.picture} className='w-9 h-9 rounded-3xl' alt={<AccountCircleIcon sx={{}}/>} />
+              </IconButton>
+              <ul className="dropdown-menu" style={{}} aria-labelledby="dropdownMenuButton1">
+                  <li>{user.name}</li>
+                  <li>{user.email}</li>
+              </ul>
+          </div>
+        }
+        <div className="dark-mod">
+          <DarkmodeToggle className=''/>
+        </div>
       </nav>
+      {/* Hamburger Menu */}
       <div className="navbar-menu relative z-50 hidden">
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
         <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
@@ -293,6 +295,9 @@ export default function Navbar(props) {
                   Technology
                 </NavLink>
               </li>
+              <div className="dark-mod">
+                <DarkmodeToggle/>
+              </div>
             </ul>
           </div>
           <div className="mt-auto">
@@ -318,6 +323,4 @@ export default function Navbar(props) {
   );
 }
 
-Navbar.prototype = {
-  myhome: PropTypes.string,
-};
+

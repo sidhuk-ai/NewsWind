@@ -1,13 +1,12 @@
 import React from 'react';
 import { Skeleton } from '@mui/material';
 
-const Loading = (props) => {
-    let {mode} = props;
+const Loading = () => {
     return (
         <>
             <div className="row my-3 ms-0 me-0">
                 <div className="col-md-4 mb-4">
-                    <div className="card container" aria-hidden="true" style={{backgroundColor: mode==="light"?"white":"rgb(97 92 92)"}}>
+                    <div className="card container" aria-hidden="true" style={{}}>
                         <Skeleton variant="rectangular" className='mt-1' width={347.1} height={180} animation='wave'/>
                         <div className="card-body text-center">
                             <h5 className="card-title placeholder-glow">
@@ -28,13 +27,13 @@ const Loading = (props) => {
                 </div>
                 
                 <div className="col-md-4 mb-4">
-                    <div className="card container" aria-hidden="true" style={{backgroundColor: mode==="light"?"white":"rgb(97 92 92)"}}>
+                    <div className="card container" aria-hidden="true" style={{}}>
                         <Skeleton
-                         variant="rectangular" 
-                         className='mt-1' 
-                         width={347.1} 
-                         height={180} 
-                         animation='wave'
+                            variant="rectangular" 
+                            className='mt-1' 
+                            width={347.1} 
+                            height={180} 
+                            animation='wave'
                         />
                         <div className="card-body text-center">
                             <h5 className="card-title placeholder-glow">
@@ -54,7 +53,7 @@ const Loading = (props) => {
                     </div>
                 </div>
                 <div className="col-md-4 mb-4">
-                    <div className="card container" aria-hidden="true" style={{backgroundColor: mode==="light"?"white":"rgb(97 92 92)"}}>
+                    <div className="card container" aria-hidden="true" style={{}}>
                         <Skeleton variant="rectangular" className='mt-1' width={347.1} height={180} animation='wave'/>
                         <div className="card-body text-center">
                             <h5 className="card-title placeholder-glow">
@@ -75,7 +74,7 @@ const Loading = (props) => {
                 </div>
             </div>
             <div className="text-center m-3">
-                <div className="spinner-border" role="status" style={{color: props.mode==='dark'?'white':'black'}}>
+                <div className="spinner-border" role="status" style={{}}>
                     <span className="visually-hidden">Loading...</span>
                 </div>
             </div>

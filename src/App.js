@@ -1,21 +1,17 @@
-// https://sidhuk-ai.github.io/ my website
+// https://sidhuk-ai.github.io/newsindk/ my website
 import React,{useState} from 'react'
 import NavBar from './components/Navbar';
 import News from './components/NewsComponent';
-import SignIn from './components/SignIn';
-import NewsLetter from './components/NewsLetter';
 import StartPage from './components/StartPage';
 import ScrollToTop from "react-scroll-to-top";
 import Button from '@mui/material/Button'
-import { DarkModeSwitch } from 'react-toggle-dark-mode';
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
+  Route
 } from "react-router-dom";
 import LoadingBar from 'react-top-loading-bar';
-import { Dialog, Snackbar } from '@mui/material';
-import { Alert } from '@mui/material';
+import { Dialog } from '@mui/material';
 import Offline from './Offline.gif'
 
 function App() {
@@ -23,35 +19,12 @@ function App() {
   const pageSize = 6;
   const apiKey = process.env.REACT_APP_NEWS_API;
   const [progress, setProgress] = useState(0);
-  const [mode, setmode] = useState("light");
-  const [isDarkMode, setDarkMode] = useState(false);
-  const [open, setOpen] = useState(false);
   const [openMod, setOpenMod] = useState(navigator.onLine ? false : true);
-  const [msg, setMsg] = useState('');
-  const toggleDarkMode = () => {
-    if (isDarkMode === false) {
-      setDarkMode(true);
-      setMsg('Dark mode enabled');
-      setOpen(true);
-      setmode("dark");//example color for dark mode:- #424244
-      document.body.style.backgroundColor = "#212529";
-      document.body.style.transitionDuration = '0.7s';
-      localStorage.setItem('webTheme','dark');
-    }
-    else{
-      setDarkMode(false);
-      setOpen(true);
-      setMsg('Light mode enabled');
-      setmode("light");
-      document.body.style.backgroundColor = "white";
-      document.body.style.transitionDuration = '0.7s';
-    }
-  }
+
   const handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }else{
-      setOpen(false);
       setOpenMod(false);
     }
   };
@@ -62,23 +35,7 @@ function App() {
     <div>
     <ScrollToTop smooth top={600} style={{display:'initial'}}/>
       <Router>
-        <NavBar myhome="Home" mode={mode} toggleDarkMode={toggleDarkMode} isDarkMode={isDarkMode}/>
-        <div className="">
-          <span style={{height:"20px"}} data-bs-toggle="tooltip" data-bs-placement="bottom" title='Toggle Dark/Light Mode' >
-            <DarkModeSwitch
-              className='fixed right-1 top-[100px] backdrop-blur-xl border-2 rounded-md z-50'
-              checked={isDarkMode}
-              onChange={toggleDarkMode}
-              size={35}
-              moonColor='purple'
-            />
-          </span>
-        </div>
-        <Snackbar open={open} autoHideDuration={3000} onClose={handleClose}>
-        <Alert severity="info" sx={{ width: '100%' }}>
-          {msg}
-        </Alert>
-        </Snackbar>
+        <NavBar myhome="Home"/>
         <LoadingBar
         height={3}
         color='#f11946'
@@ -97,20 +54,14 @@ function App() {
             You seems to be offline
           </div>
           <Button className='' onClick={refreshPage}>Reload</Button>
-          {/* <Button onClick={handleClose} autoFocus>
-            Agree
-        </DialogActions>
-          </Button> */}
         </Dialog>
         <Switch>
           <Route exact path="/newsindk"><StartPage/></Route>
-          <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general" mode={mode}/></Route>
-          <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science" mode={mode}/></Route>
-          <Route exact path="/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports" mode={mode}/></Route>
-          <Route exact path="/entertainment"><News key="entertainment" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="entertainment" mode={mode}/></Route>
-          <Route exact path="/technology"><News key="technology" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="technology" mode={mode}/></Route>
-          <Route exact path="/signin"><SignIn mode={mode}/></Route>
-          <Route exact path="/newsletter"><NewsLetter mode={mode}/></Route>
+          <Route exact path="/general"><News key="general" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="general"/></Route>
+          <Route exact path="/science"><News key="science" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="science"/></Route>
+          <Route exact path="/sports"><News key="sports" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="sports"/></Route>
+          <Route exact path="/entertainment"><News key="entertainment" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="entertainment"/></Route>
+          <Route exact path="/technology"><News key="technology" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="technology"/></Route>
         </Switch>
       </Router>
     </div>

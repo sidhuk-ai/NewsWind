@@ -57,19 +57,19 @@ function NewsComponent(props) {
 
     return (
         <>
-            <h1 className="text-center font-bold text-3xl select-none" style={{ margin: '35px 0px 35px' ,color: props.mode==="dark"?"white":"black"}}>NewsWind - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
-            {loading && <Loading mode={props.mode}/>}
+            <h1 className="text-center font-bold text-3xl select-none" style={{ margin: '35px 0px 35px' }}>NewsWind - Top {capitalizeFirstLetter(props.category)} Headlines</h1>
+            {loading && <Loading/>}
             <InfiniteScroll
                 dataLength={articles?.length}
                 next={fetchMoreData}
                 hasMore={articles?.length !== totalResults}
-                loader={<Loading mode={props.mode}/>}
+                loader={<Loading/>}
             >
                 <div className="container">
                     <div className="row">
                         {articles?.map((element,key) => {
                             return <div className="col-md-4 mb-3" key={key}>
-                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} mode={props.mode} />
+                                <NewsItem title={element.title ? element.title : ""} description={element.description ? element.description : ""} imageurl={element.urlToImage} newsUrl={element.url} author={element.author} date={element.publishedAt} />
                             </div>
                         })}
                     </div>

@@ -1,12 +1,6 @@
 import { useLottie, useLottieInteractivity } from "lottie-react";
 import BreatheInOut from "./Video/BreatheInOut.json";
 
-// const style = {
-//   height: 300,
-//   border: 3,
-//   borderStyle: "solid",
-//   borderRadius: 7,
-// };
 
 const options = {
   animationData: BreatheInOut,

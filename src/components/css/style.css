@@ -101,24 +101,8 @@ color: black;
     font-family: 'Waiting for the Sunrise', cursive;
 }
 
-.bouncy{
-    animation: bounce 1s;
-    animation-direction: alternate;
-    animation-timing-function: ease;
-    animation-iteration-count: 1;
-}
-
-@keyframes bounce {
-    from{
-        transform: translate3d(0,0,0);
-    }
-    to{
-        transform: translate3d(0,20px,0);
-    }
-}
-
 .heading{
-    @apply relative text-[32px] text-center leading-9 font-bold 
+    @apply relative text-[32px] text-center leading-9 font-extrabold 
     md:!text-5xl md:!leading-[52px] md:!text-left
     lg:!text-[64px] lg:!leading-[68px];
     font-family: var(--font-ns);
@@ -226,8 +210,8 @@ color: black;
     fill: currentColor;
 }
 
-
-.link-mktg::after, .link-mktg.link-emphasis-mktg::before{
+.link-mktg::after,
+.link-mktg.link-emphasis-mktg::before{
     position: absolute;
     bottom: -0.15em;
     left: 0;
@@ -240,18 +224,23 @@ color: black;
     transform: scaleX(0);
     transform-origin: 0 0;
 }
+
 .link-mktg.link-emphasis-mktg::before {
     opacity: .2;
     transform: scaleX(1);
 }
+
 @media screen and (prefers-reduced-motion: no-preference){
     .link-mktg::after, .link-mktg.link-emphasis-mktg::before {
         transition: transform .3s ease;
     }
 }
-.link-mktg:hover::after, .link-mktg:active::after {
+
+.link-mktg:hover::after,
+.link-mktg:active::after {
     transform: scaleX(1);
 }
+
 .link-mktg{
     position: relative;
     display: inline-block;
