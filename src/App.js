@@ -32,7 +32,7 @@ function App() {
     window.location.reload();
   }
   return (
-    <div>
+    <>
     <ScrollToTop smooth top={600} style={{display:'initial'}}/>
       <Router>
         <NavBar myhome="Home"/>
@@ -64,7 +64,7 @@ function App() {
           <Route exact path="/technology"><News key="technology" setProgress={setProgress} pageSize={pageSize} apiKey={apiKey} country="in" category="technology"/></Route>
         </Switch>
       </Router>
-    </div>
+    </>
   );
 }
 

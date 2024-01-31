@@ -5,39 +5,42 @@ import { Link } from 'react-router-dom';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { Skeleton } from '@mui/material';
-import Lottie from 'lottie-react'
-import purpleGlobe from './Video/purpleGlobe.json'
-import scrollDown from './Video/scrollDown.json'
+import SphereAnim from './SphereAnim';
 
 function StartPage() {
-  const sections = document.querySelectorAll("section");
-  const navLi = document.querySelectorAll(".nav-home .contain .unordered a");
-  window.onscroll = () => {
-    var current = "";
-
-    sections.forEach((section) => {
-      const sectionTop = section.offsetTop;
-      if (window.pageYOffset >= sectionTop - 60) {
-        current = section.getAttribute("id"); }
-    });
-
-    navLi.forEach((a) => {
-      a.classList.remove("active");
-      if (a.classList.contains(current)) {
-        a.classList.add("active");
-      }
-    });
-  };
+  document.addEventListener("DOMContentLoaded", () => {
+    const sections = document.querySelectorAll("section");
+    const navLinks = document.querySelectorAll(".nav-home .contain .unordered a");
+  
+    window.onscroll = () => {
+      var current = "";
+  
+      sections.forEach((section) => {
+        const sectionTop = section.offsetTop;
+        if (window.scrollY >= sectionTop - 60) {
+          current = section.getAttribute("id");
+        }
+      });
+  
+      navLinks.forEach((a) => {
+        a.classList.remove("active");
+        if (a.classList.contains(current)) {
+          a.classList.add("active");
+        }
+      });
+    };
+  });
+  
 
   useEffect(() => {
     AOS.init()
   }, [])
-  
+
   return (
     <div className='start-page relative lg:z-[-1] lg:mt-4 min-h-[100vh] bg-white'>
       {/* // ? Top Element */}
       <div className='main-element'>
-        <div className='svg-background h-auto pb-10 bg-black flex justify-center items-center flex-col lg:flex-row lg:!-mt-4'>
+        <div className='svg-background h-[620px] pb-10 flex justify-center items-center flex-col lg:!flex-row lg:!-mt-4'>
           <div className='left-element lg:pl-6'>
             <h1 className='heading text-white font-extrabold'>
               Bringing you the <br /> latest news in,
@@ -53,9 +56,7 @@ function StartPage() {
             </h1>
             <p className='para text-xl font-semibold text-white !mt-3 text-center md:!text-left md:mr-64 lg:!mr-0 lg:w-[608px] lg:!text-2xl'>This Newswind Website is just an example website created using <a href="https://reactjs.org/" className='font-bold bg-[#74b9ff63] !text-current rounded underline decoration-red-400 border-b-[#7dd3fc] px-1 hover:decoration-[#7dd3fc]' target='_blank' rel='noreferrer'>Reactjs</a> as a framework.</p>
           </div>
-          <div className='right-element' data-aos='zoom-in'>
-            <Lottie animationData={purpleGlobe} width='800' height='800'/>
-          </div>
+          <SphereAnim/>
         </div>
       </div>
       {/*//? Lottie Animation */}
@@ -72,9 +73,9 @@ function StartPage() {
           </div>
         </div>
         <div className="p-6 my-16">
-          <span className='text-5xl font-semibold text-black'>Scroll down to see more</span>
-          <div className='w-1/2 h-1/2 m-auto'>
-            <Lottie animationData={scrollDown}/>
+          <span className='text-5xl font-semibold text-black'>Scroll down to see more </span>
+          <div className="animate-bounce text-5xl text-black text-center mt-2">
+            <i className="bi bi-arrow-down"></i>
           </div>
         </div>
       </div>
@@ -202,15 +203,7 @@ function StartPage() {
         </section>
       </div>
       <div className="ending flex justify-center items-center">
-        <div>
-          <button title='button' type='button' className='btn-mktg'>
-            Text
-            <svg xmlns="http://www.w3.org/2000/svg" className="octicon arrow-symbol-mktg" width="16" height="16" viewBox="0 0 16 16" fill="none">
-              <path fill="currentColor" d="M7.28033 3.21967C6.98744 2.92678 6.51256 2.92678 6.21967 3.21967C5.92678 3.51256 5.92678 3.98744 6.21967 4.28033L7.28033 3.21967ZM11 8L11.5303 8.53033C11.8232 8.23744 11.8232 7.76256 11.5303 7.46967L11 8ZM6.21967 11.7197C5.92678 12.0126 5.92678 12.4874 6.21967 12.7803C6.51256 13.0732 6.98744 13.0732 7.28033 12.7803L6.21967 11.7197ZM6.21967 4.28033L10.4697 8.53033L11.5303 7.46967L7.28033 3.21967L6.21967 4.28033ZM10.4697 7.46967L6.21967 11.7197L7.28033 12.7803L11.5303 8.53033L10.4697 7.46967Z"/>
-              <path className="octicon-chevrow-stem" stroke="currentColor" d="M1.75 8H11" strokeWidth="1.5" strokeLinecap="round"/>
-            </svg>
-          </button>
-        </div>
+        
       </div>
       <footer className="text-gray-400 bg-gray-900 body-font">
         <div className="container px-5 py-8 mx-auto flex items-center sm:flex-row flex-col">

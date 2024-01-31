@@ -1,18 +1,15 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
-import { Link } from "react-router-dom";
+import {NavLink, Link} from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 import IconButton from "@mui/material/IconButton";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
-import { useAuth0 } from "@auth0/auth0-react";
-import "./css/style.css";
 import DarkmodeToggle from "./DarkMode/DarkmodeToggle";
-import './DarkMode/style.scss'
-// import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
+import "./css/style.css";
+import './DarkMode/style.scss';
 
 export default function Navbar() {
   const { loginWithRedirect, isAuthenticated, user, logout } = useAuth0();
-
   // Hamburger Menu
   document.addEventListener('DOMContentLoaded', function() {
     // open
@@ -187,7 +184,7 @@ export default function Navbar() {
         {/* Creating Authentication */}
         { 
           isAuthenticated ? 
-          <li className="list-none hidden lg:inline-block transition duration-200 ">
+          <li className="list-none hidden lg:ml-auto lg:inline-block transition duration-200 ">
               <Button color='secondary' onClick={() => logout({ returnTo: window.location.origin })}>Log Out</Button>
           </li>
           : 
@@ -201,27 +198,30 @@ export default function Navbar() {
               </Button>
           </li>
         }
-        {/* Authentication ^^^^ */}
+        {/* //? Authentication */}
         {
           isAuthenticated &&
           <div className='dropdown'>
-              <IconButton className='dropdown-toggle after:content-none' aria-label="account" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              <IconButton className='dropdown-toggle after:content-none' type="button" id="dropdownMenuClickableInside" data-bs-toggle="dropdown" data-bs-auto-close="outside" aria-expanded="false">
                   <img src={user.picture} className='w-9 h-9 rounded-3xl' alt={<AccountCircleIcon sx={{}}/>} />
               </IconButton>
-              <ul className="dropdown-menu" style={{}} aria-labelledby="dropdownMenuButton1">
-                  <li>{user.name}</li>
-                  <li>{user.email}</li>
+              <ul className="dropdown-menu" style={{}} aria-labelledby="dropdownMenuClickableInside">
+                <div className="m-3">
+                  <li className="dropdown-item">{user.name}</li>
+                  <hr className="my-1"/>
+                  <li className="dropdown-item">{user.email}</li>
+                </div>
               </ul>
           </div>
         }
         <div className="dark-mod">
-          <DarkmodeToggle className=''/>
+            <DarkmodeToggle/>
         </div>
       </nav>
       {/* Hamburger Menu */}
       <div className="navbar-menu relative z-50 hidden">
         <div className="navbar-backdrop fixed inset-0 bg-gray-800 opacity-25"></div>
-        <nav className="fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 bg-white border-r overflow-y-auto">
+        <nav className="ham-menu fixed top-0 left-0 bottom-0 flex flex-col w-5/6 max-w-sm py-6 px-6 border-r overflow-y-auto">
           <div className="flex items-center mb-8">
             <Link className="mr-auto text-3xl font-bold leading-none" to="/newsindk">
               <span className="comp font-light text-2xl">NewsWind</span>
@@ -295,9 +295,6 @@ export default function Navbar() {
                   Technology
                 </NavLink>
               </li>
-              <div className="dark-mod">
-                <DarkmodeToggle/>
-              </div>
             </ul>
           </div>
           <div className="mt-auto">

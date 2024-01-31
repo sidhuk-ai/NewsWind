@@ -2,16 +2,14 @@ import React from 'react'
 
 function Toggle({checked, onChange}) {
   return (
-    <div className='mt-[10px]'>
+    <div className=''>
       <span className="toggle-control">
-      <input
-        className="dmcheck"
-        type="checkbox"
-        checked={checked}
-        onChange={onChange}
-        id="dmcheck"
-      />
-      <label htmlFor="dmcheck" />
+      <input type="checkbox" className="checkbox" id="chk" checked={checked} onChange={onChange} />
+      <label className="label" htmlFor="chk">
+        <i className="bi bi-moon-stars"></i>
+        <i className="bi bi-sun-fill"></i>
+        <div className="ball"></div>
+      </label>
     </span>
   </div>
   )

@@ -5,14 +5,8 @@ import useDarkMode from 'use-dark-mode'
 function DarkmodeToggle() {
     const darkMode = useDarkMode(false);
   return (
-    <div className="dark-mode-toggle justify-center m-[1rem]">
-      <button type="button" onClick={darkMode.disable}>
-        ☀
-      </button>
+    <div className="dark-mode-toggle ml-5">
       <Toggle checked={darkMode.value} onChange={darkMode.toggle} />
-      <button type="button" onClick={darkMode.enable}>
-        ☾
-      </button>
     </div>
   )
 }
